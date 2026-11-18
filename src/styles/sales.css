@@ -1,0 +1,598 @@
+/* Sales page. Each section is held to about one screen. */
+
+.head {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.head h2 {
+  margin: 0;
+  font-size: clamp(32px, 4.4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+}
+
+/* Hero: headline, photo and specs all inside one screen */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100svh - 52px);
+  max-height: 940px;
+  padding: clamp(28px, 5vh, 56px) 24px clamp(20px, 3vh, 32px);
+  background: var(--ink);
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero__kicker {
+  margin: 0 0 6px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #ff6b5c;
+}
+
+.hero__title {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(40px, 6.4vw, 80px);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  background: linear-gradient(180deg, #fff 35%, #a1a1a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__lead {
+  max-width: 540px;
+  margin: 14px 0 22px;
+  font-size: clamp(17px, 1.6vw, 20px);
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* The photo takes whatever height is left, so specs stay on screen */
+.hero__media {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__media img {
+  height: 100%;
+  max-height: 52vh;
+  min-height: 240px;
+  width: auto;
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 820px;
+  margin: 0;
+}
+
+.specs div {
+  display: flex;
+  flex-direction: column-reverse;
+  border-left: 1px solid var(--line);
+}
+
+.specs div:first-child {
+  border-left: 0;
+}
+
+.specs dd {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.specs dt {
+  font-size: 12.5px;
+  color: var(--faint);
+}
+
+/* Why Quell: a compact grid, about 460px tall */
+.why {
+  padding: var(--section) 24px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 230px 210px;
+  gap: 16px;
+  max-width: var(--wrap);
+  margin: 0 auto;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  border-radius: 24px;
+  background: var(--tile);
+  overflow: hidden;
+}
+
+.tile h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.tile__k {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--faint);
+}
+
+.tile__num {
+  margin: auto 0 0;
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  background: linear-gradient(90deg, var(--red), var(--red-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tile--photo {
+  padding: 0;
+}
+
+.tile--photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tile--wide {
+  grid-column: span 2;
+}
+
+.tile--wide img {
+  object-position: 50% 25%;
+}
+
+.tile--tall {
+  grid-row: span 2;
+  grid-column: 3;
+  grid-row-start: 1;
+}
+
+.tile__cap {
+  position: relative;
+  margin-top: auto;
+  padding: 26px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+}
+
+.tile__cap--top {
+  margin-top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), transparent);
+}
+
+/* Reviews: the one light section, compact */
+.reviews {
+  padding: var(--section) 24px;
+  background: var(--light);
+  color: var(--light-ink);
+}
+
+.demo-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 3px 10px;
+  border: 1px solid #d2d2d7;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #6e6e73;
+}
+
+.reviews__row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: var(--wrap);
+  margin: 0 auto;
+}
+
+.review {
+  margin: 0;
+  padding: 26px;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.review__stars {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.review blockquote {
+  margin: 12px 0 16px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.38;
+  letter-spacing: -0.015em;
+}
+
+.review figcaption {
+  font-size: 12.5px;
+  color: var(--faint);
+}
+
+/* Buy: image and box side by side, one screen */
+.buy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: var(--section) 24px;
+}
+
+.buy__media img {
+  width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 62%, transparent 100%);
+}
+
+.buy__box h2 {
+  margin: 0 0 20px;
+  font-size: clamp(32px, 3.6vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.bundles {
+  display: grid;
+  gap: 10px;
+}
+
+.bundle {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #424245;
+  border-radius: 14px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.bundle:hover {
+  border-color: #6e6e73;
+}
+
+.bundle.is-on {
+  border: 2px solid var(--blue);
+  padding: 13px 17px;
+}
+
+.bundle__name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bundle__name small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--faint);
+}
+
+.bundle__price {
+  font-size: 17px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.bundle__price s {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--faint);
+}
+
+.bundle__tag {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  padding: 2px 9px;
+  border: 1px solid #424245;
+  border-radius: 999px;
+  background: var(--tile);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--red-soft);
+}
+
+.bump {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px dashed #48484a;
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.bump.is-on {
+  border-style: solid;
+  border-color: #6e6e73;
+}
+
+.bump input {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--blue);
+  flex: none;
+}
+
+.bump strong {
+  display: block;
+  font-size: 14.5px;
+  color: var(--text);
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin: 18px 0 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.summary strong {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.summary__code {
+  color: #6be0a3;
+}
+
+.perks {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--faint);
+  text-align: center;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px max(24px, calc((100% - var(--wrap)) / 2));
+  border-top: 1px solid var(--tile);
+  font-size: 12px;
+  color: #6e6e73;
+}
+
+/* Phone buy bar */
+.sticky {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 18px;
+  border-radius: 999px;
+  background: rgba(29, 29, 31, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 14px;
+  transform: translateY(140%);
+  transition: transform 0.3s;
+}
+
+.sticky.is-on {
+  transform: none;
+}
+
+/* Email offer */
+.offer {
+  width: min(440px, calc(100% - 32px));
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: #fff;
+  color: var(--light-ink);
+}
+
+.offer::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.offer[open] {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.offer__body {
+  padding: 34px 30px 26px;
+  text-align: center;
+}
+
+.offer h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.offer p {
+  margin: 0 0 18px;
+  color: #6e6e73;
+  line-height: 1.45;
+}
+
+.offer input[type="email"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 13px 16px;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  font-size: 16px;
+  color: var(--light-ink);
+}
+
+.offer__error {
+  margin: -4px 0 10px !important;
+  color: #d70015 !important;
+  font-size: 13px;
+  text-align: left;
+}
+
+.offer__no {
+  margin-top: 12px;
+  border: 0;
+  background: none;
+  font-size: 13px;
+  color: #6e6e73;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.offer__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: #f5f5f7;
+  font-size: 18px;
+  color: var(--light-ink);
+  cursor: pointer;
+}
+
+/* Tablets and phones */
+@media (max-width: 860px) {
+  .nav__links a:not(.nav__buy) {
+    display: none;
+  }
+
+  .hero {
+    max-height: none;
+  }
+
+  .hero__media img {
+    max-height: 40vh;
+    min-height: 200px;
+  }
+
+  .specs {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 14px;
+  }
+
+  .specs div:nth-child(3) {
+    border-left: 0;
+  }
+
+  .tiles {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px 180px;
+  }
+
+  .tile--wide {
+    grid-column: span 2;
+  }
+
+  .tile--tall {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .tile:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .tile:nth-child(4) {
+    grid-column: span 2;
+  }
+
+  .reviews__row {
+    grid-template-columns: 1fr;
+  }
+
+  .review:nth-child(3) {
+    display: none; /* two reviews are enough on a phone */
+  }
+
+  .buy {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .buy__media img {
+    max-height: 260px;
+    margin: 0 auto;
+  }
+
+  .sticky {
+    display: flex;
+  }
+
+  .foot {
+    flex-direction: column;
+    padding-bottom: 84px;
+  }
+}
